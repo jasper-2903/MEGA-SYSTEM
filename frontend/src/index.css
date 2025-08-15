@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
 }
 
 a {
@@ -28,6 +30,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f4f6f9;
 }
 
 h1 {
@@ -52,6 +55,18 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.navbar-brand {
+  letter-spacing: 0.3px;
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.btn {
+  border-radius: 0.4rem;
 }
 
 @media (prefers-color-scheme: light) {
