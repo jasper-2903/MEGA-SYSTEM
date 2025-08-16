@@ -1,7 +1,7 @@
 import axios from 'axios'
+import { tokenStorageKey } from '../utils/authToken'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
-const tokenStorageKey = 'auth_token'
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
@@ -31,30 +31,18 @@ api.interceptors.response.use(
   }
 )
 
-export function setAuthToken(token) {
-  if (token) {
-    localStorage.setItem(tokenStorageKey, token)
-  } else {
-    localStorage.removeItem(tokenStorageKey)
-  }
-}
-
-export function clearAuthToken() {
-  localStorage.removeItem(tokenStorageKey)
-}
-
 const endpoints = {
-  login: '/api/auth/login',
-  register: '/api/auth/register',
-  logout: '/api/auth/logout',
-  me: '/api/auth/me',
-  inventory: '/api/inventory',
-  production: '/api/production',
-  orders: '/api/orders',
-  products: '/api/products',
-  reports: '/api/reports',
-  dashboardMetrics: '/api/dashboard/metrics',
-  dashboardCharts: '/api/dashboard/charts',
+  login: '/api/v1/auth/login',
+  register: '/api/v1/auth/register',
+  logout: '/api/v1/auth/logout',
+  me: '/api/v1/auth/me',
+  inventory: '/api/v1/inventory',
+  production: '/api/v1/production',
+  orders: '/api/v1/orders',
+  products: '/api/v1/products',
+  reports: '/api/v1/reports',
+  dashboardMetrics: '/api/v1/dashboard/metrics',
+  dashboardCharts: '/api/v1/dashboard/charts',
 }
 
 function buildQuery(params = {}) {

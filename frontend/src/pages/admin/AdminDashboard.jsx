@@ -28,7 +28,7 @@ export default function AdminDashboard() {
         if (!isMounted) return
         setMetrics(m)
         setCharts(c)
-      } catch (e) {
+      } catch {
         // noop: could show toast
       } finally {
         if (isMounted) setLoading(false)

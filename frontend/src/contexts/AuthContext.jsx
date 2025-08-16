@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { AuthAPI, setAuthToken, clearAuthToken } from '../services/api'
+import { AuthAPI } from '../services/api'
+import { setAuthToken, clearAuthToken } from '../utils/authToken'
 
 const AuthContext = createContext(null)
 
@@ -16,7 +17,7 @@ export function AuthProvider({ children }) {
         const data = await AuthAPI.me()
         if (!isMounted) return
         setUser(data?.user || data)
-      } catch (err) {
+      } catch {
         setUser(null)
         setToken(null)
         clearAuthToken()
@@ -58,7 +59,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await AuthAPI.logout()
-    } catch (e) {
+    } catch {
       // ignore
     }
     clearAuthToken()
