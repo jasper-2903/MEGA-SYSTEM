@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\InventoryController;
+use App\Http\Controllers\Api\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\Api\InventoryController;
 Route::prefix('v1')->group(function () {
     // Authentication
     Route::post('/auth/login', [AuthController::class, 'login']);
+    Route::post('/auth/register', [AuthController::class, 'register']);
     
     // Public product catalog (for customer browsing)
     Route::get('/products', [ProductController::class, 'index']);
@@ -34,6 +36,10 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
     // Inventory
     Route::apiResource('inventory', InventoryController::class);
     Route::post('/inventory/adjust', [InventoryController::class, 'adjust']);
+
+    // Dashboard
+    Route::get('/dashboard/metrics', [DashboardController::class, 'metrics']);
+    Route::get('/dashboard/charts', [DashboardController::class, 'charts']);
     
     // Additional routes will be added as controllers are implemented
 });
