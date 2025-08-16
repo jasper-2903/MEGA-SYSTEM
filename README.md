@@ -1,31 +1,4 @@
-# Unick Enterprises Inc. - Furniture Manufacturing ERP
 
-A comprehensive production-ready ERP system for furniture manufacturing with MRP-based inventory management, production tracking, customer ordering, and automated reporting.
-
-## 🏗️ Architecture
-
-- **Backend**: Laravel 10+ with PHP 8.2+, RESTful API, Laravel Sanctum authentication
-- **Frontend**: React 18+ with Vite, React Router, Bootstrap 5.3
-- **Database**: MySQL 8 with Eloquent ORM
-- **Structure**: Monorepo with `/backend` and `/frontend` directories
-
-## 🚀 Quick Start
-
-### Prerequisites
-- PHP 8.2+
-- Node.js 18+
-- MySQL 8.0+
-- Composer
-- npm/yarn
-
-### Backend Setup
-```bash
-cd backend
-cp .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
 ```
 
 ### Frontend Setup
@@ -183,6 +156,4 @@ Docker Compose files are provided for easy development and deployment.
 
 For technical support or feature requests, please contact the development team.
 
----
-
-**Unick Enterprises Inc.** - Transforming furniture manufacturing through intelligent ERP solutions.
+**Unick Enterprises Inc.** - Transforming furniture manufacturing through intelligent ERP so
